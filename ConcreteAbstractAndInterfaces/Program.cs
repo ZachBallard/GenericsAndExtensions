@@ -19,74 +19,108 @@ namespace ConcreteAbstractAndInterfaces
             int objectSelected = 0;
             int whichAction = 0;
 
+            bool willKeepOn = true;
+
             Console.WriteLine("Welcome to a really strange room containing a Human, a Robot, and a Panda!");
 
-            objectSelected = Select();
-
-            whichAction = WhatAction();
-
-            if (objectSelected == 1)
+            while (true)
             {
-                switch (whichAction)
+                objectSelected = Select();
+
+                whichAction = WhatAction();
+
+                if (objectSelected == 1)
                 {
-                    case 1:
-                        human.DisplayName();
-                        break;
-                    case 2:
-                        human.DisplayGreeting();
-                        break;
-                    case 3:
-                        human.GoToSleep();
-                        break;
-                    case 4:
-                        human.WakeUp();
-                        break;
-                    case 5:
-                        human.Eat(food);
-                        break;
+                    switch (whichAction)
+                    {
+                        case 1:
+                            human.DisplayName();
+                            break;
+                        case 2:
+                            human.DisplayGreeting();
+                            break;
+                        case 3:
+                            human.GoToSleep();
+                            break;
+                        case 4:
+                            human.WakeUp();
+                            break;
+                        case 5:
+                            human.Eat(food);
+                            break;
+                    }
+                }
+                else if (objectSelected == 2)
+                {
+                    switch (whichAction)
+                    {
+                        case 1:
+                            robot.DisplayName();
+                            break;
+                        case 2:
+                            robot.DisplayGreeting();
+                            break;
+                        case 3:
+                            robot.ShutDown();
+                            break;
+                        case 4:
+                            robot.StartUp();
+                            break;
+                        case 5:
+                            robot.Eat(food);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (whichAction)
+                    {
+                        case 1:
+                            panda.DisplayName();
+                            break;
+                        case 2:
+                            panda.DisplayGreeting();
+                            break;
+                        case 3:
+                            panda.GoToSleep();
+                            break;
+                        case 4:
+                            panda.WakeUp();
+                            break;
+                        case 5:
+                            panda.Eat(food);
+                            break;
+                    }
+                }
+
+                willKeepOn = willMoreStuff();
+                if (!willKeepOn)
+                {
+                    break;
                 }
             }
-            else if (objectSelected == 2)
+        }
+
+        private static bool willMoreStuff()
+        {
+            string userInput = "";
+
+            while (true)
             {
-                switch (whichAction)
+                Console.WriteLine("\nDo you want to keep screwing with the pointless beings lives?");
+                Console.WriteLine("(y)es, I really enjoy it / (n)o, and probably never again");
+
+                userInput = Console.ReadLine();
+                switch (userInput)
                 {
-                    case 1:
-                        robot.DisplayName();
+                    case "y":
+                        return true;
+                    case "n":
+                        return false;
+                    default:
+                        Console.WriteLine("\nThat isn't a valid selection! Try again.");
                         break;
-                    case 2:
-                        robot.DisplayGreeting();
-                        break;
-                    case 3:
-                        robot.StartUp();
-                        break;
-                    case 4:
-                        robot.ShutDown();
-                        break;
-                    case 5:
-                        robot.Eat(food);
-                        break;
-                }
-            }
-            else
-            {
-                switch (whichAction)
-                {
-                    case 1:
-                        panda.DisplayName();
-                        break;
-                    case 2:
-                        panda.DisplayGreeting();
-                        break;
-                    case 3:
-                        panda.GoToSleep();
-                        break;
-                    case 4:
-                        panda.WakeUp();
-                        break;
-                    case 5:
-                        panda.Eat(food);
-                        break;
-                }
+                };
             }
         }
 
@@ -96,7 +130,7 @@ namespace ConcreteAbstractAndInterfaces
 
             while (true)
             {
-                Console.WriteLine("You can make them do some stuff. Would you like to mess with...");
+                Console.WriteLine("\nYou can make them do some stuff. Would you like to mess with...");
                 Console.WriteLine("The (h)uman, the (r)obot, or the (p)anda?");
 
                 userInput = Console.ReadLine();
@@ -122,7 +156,7 @@ namespace ConcreteAbstractAndInterfaces
 
             while (true)
             {
-                Console.WriteLine("What will it do...");
+                Console.WriteLine("\nWhat will it do...");
                 Console.WriteLine("get (n)ame, say (g)reeting, go to (s)leep, (w)ake up, or (e)at a taco?");
 
                 userInput = Console.ReadLine();

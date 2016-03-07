@@ -8,34 +8,48 @@ namespace ConcreteAbstractAndInterfaces
 {
     class Panda
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "Dentalfloss the Panda";
         public bool IsAsleep { get; set; }
 
         public void DisplayName()
         {
-            Console.WriteLine($"My name is {Name}");
+            Console.WriteLine($"\nMy name is {Name}");
         }
 
         public void DisplayGreeting()
         {
-            Console.WriteLine($"*Noise typical of pandas*");
+            Console.WriteLine($"\n*Noise typical of pandas*");
         }
 
         public void Eat(string food)
         {
-            Console.WriteLine($"Yum, {Name} ate {food}");
+            Console.WriteLine($"\nYum, {Name} ate a {food}");
         }
 
         public void GoToSleep()
         {
-            Console.WriteLine($"{Name} starts to fall asleep...");
-            IsAsleep = true;
+            if (IsAsleep == false)
+            {
+                Console.WriteLine($"\n{Name} starts to fall asleep...");
+                IsAsleep = true;
+            }
+            else
+            {
+                Console.WriteLine($"\n{Name} is already asleep!");
+            }
         }
 
         public void WakeUp()
         {
-            Console.WriteLine($"...{Name} has woken up!");
-            IsAsleep = false;
+            if (IsAsleep == true)
+            {
+                Console.WriteLine($"\n{Name} has woken up...");
+                IsAsleep = true;
+            }
+            else
+            {
+                Console.WriteLine($"\n{Name} is already awake!");
+            }
         }
     }
 }

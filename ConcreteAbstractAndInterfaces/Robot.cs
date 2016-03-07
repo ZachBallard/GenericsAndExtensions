@@ -8,35 +8,53 @@ namespace ConcreteAbstractAndInterfaces
 {
     class Robot
     {
-        public string Name { get; set; }
-        public bool IsTerminator { get; set; }
-        public bool IsAsleep { get; set; }
+        public string Name { get; set; } = "Extremely the sad Robot";
+        public bool IsTerminator { get; set; } = true;
+        public bool IsAsleep { get; set; } = false;
 
         public void DisplayName()
         {
-            Console.WriteLine($"My name is {Name}");
+            Console.WriteLine($"\nMy name is {Name}.");
         }
 
         public void DisplayGreeting()
         {
-            Console.WriteLine($"Beep boop beepity boop boop!");
+            Console.WriteLine($"\nBeep boop beepity boop boop!");
+            if (IsTerminator)
+            {
+                Console.WriteLine($"Can't wait to kill Steve!");
+            }
         }
 
         public void StartUp()
         {
-            Console.WriteLine($"{Name} is starting up...");
-            IsAsleep = false;
+            if (IsAsleep == true)
+            {
+                Console.WriteLine($"\n{Name} is starting up...");
+                IsAsleep = false;
+            }
+            else
+            {
+                Console.WriteLine($"\n{Name} is already booted up!");
+            }
         }
 
         public void ShutDown()
         {
-            Console.WriteLine($"{Name} is shutting down...");
-            IsAsleep = true;
+            if (IsAsleep == false)
+            {
+                Console.WriteLine($"\n{Name} is shutting down...");
+                IsAsleep = true;
+            }
+            else
+            {
+                Console.WriteLine($"\n{Name} is already shutdown!");
+            }
         }
 
         public void Eat(string food)
         {
-            Console.WriteLine($"The {food} are food. Robots do not eat food, stupid.");
+            Console.WriteLine($"\nThe {food} are food. Robots do not eat food, stupid.");
         }
 
     }
