@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConcreteAbstractAndInterfaces
 {
-    class Human
+    class Human : Thing, INotARobot
     {
-        public string Name { get; set; } = "Steve the Human";
-        public bool IsAsleep { get; set; } = false;
+        public Human(string name)
+        {
+            Name = name;
+        }
 
-        public void DisplayName()
+        public override void DisplayName()
         {
             Console.WriteLine($"\nMy name is {Name}");
         }
 
-        public void DisplayGreeting()
+        public override void DisplayGreeting()
         {
             Console.WriteLine($"\nI think therefore I am and stuff!");
         }
 
-        public void Eat(string food)
+        public override void Eat(string food)
         {
             Console.WriteLine($"\nYum, {Name} ate a {food}");
         }

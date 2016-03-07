@@ -6,18 +6,21 @@ using System.Threading.Tasks;
 
 namespace ConcreteAbstractAndInterfaces
 {
-    class Robot
+    class Robot : Thing
     {
-        public string Name { get; set; } = "Extremely the sad Robot";
-        public bool IsTerminator { get; set; } = true;
-        public bool IsAsleep { get; set; } = false;
+        public Robot(string name)
+        {
+            Name = name;
+        }
 
-        public void DisplayName()
+        public bool IsTerminator { get; set; } = true;
+
+        public override void DisplayName()
         {
             Console.WriteLine($"\nMy name is {Name}.");
         }
 
-        public void DisplayGreeting()
+        public override void DisplayGreeting()
         {
             Console.WriteLine($"\nBeep boop beepity boop boop!");
             if (IsTerminator)
@@ -52,7 +55,7 @@ namespace ConcreteAbstractAndInterfaces
             }
         }
 
-        public void Eat(string food)
+        public override void Eat(string food)
         {
             Console.WriteLine($"\nThe {food} are food. Robots do not eat food, stupid.");
         }

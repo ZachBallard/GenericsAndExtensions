@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace ConcreteAbstractAndInterfaces
 {
-    class Panda
+    class Panda : Thing, INotARobot
     {
-        public string Name { get; set; } = "Dentalfloss the Panda";
-        public bool IsAsleep { get; set; }
+        public Panda(string name)
+        {
+            Name = name;
+        }
 
-        public void DisplayName()
+        public override void DisplayName()
         {
             Console.WriteLine($"\nMy name is {Name}");
         }
 
-        public void DisplayGreeting()
+        public override void DisplayGreeting()
         {
             Console.WriteLine($"\n*Noise typical of pandas*");
         }
 
-        public void Eat(string food)
+        public override void Eat(string food)
         {
             Console.WriteLine($"\nYum, {Name} ate a {food}");
         }

@@ -12,14 +12,26 @@ namespace ConcreteAbstractAndInterfaces
         static void Main(string[] args)
         {
             string food = "taco";
-            var panda = new Panda();
-            var human = new Human();
-            var robot = new Robot();
+
+            var panda = new Panda("Dentalfloss the Panda");
+            var human = new Human("Steve the Human");
+            var robot = new Robot("Eternal the Sad Robot");
 
             int objectSelected = 0;
             int whichAction = 0;
 
             bool willKeepOn = true;
+            
+            //These lists are purely demonstrative via errors
+            List<Human> humanList = new List<Human>();
+            humanList.Add(human);
+            List<Robot> robotList = new List<Robot>();
+            robotList.Add(robot);
+            List<Panda> pandaList = new List<Panda>();
+            pandaList.Add(panda);
+            List<INotARobot> notRobotList = new List<INotARobot>();
+            notRobotList.Add(human);
+            notRobotList.Add(panda);
 
             Console.WriteLine("Welcome to a really strange room containing a Human, a Robot, and a Panda!");
 
