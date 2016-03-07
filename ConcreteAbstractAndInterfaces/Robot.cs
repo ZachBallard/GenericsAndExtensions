@@ -13,7 +13,7 @@ namespace ConcreteAbstractAndInterfaces
             Name = name;
         }
 
-        public bool IsTerminator { get; set; } = true;
+        public bool amITerminator { get; set; } = true;
 
         public override void DisplayName()
         {
@@ -23,7 +23,7 @@ namespace ConcreteAbstractAndInterfaces
         public override void DisplayGreeting()
         {
             Console.WriteLine($"\nBeep boop beepity boop boop!");
-            if (IsTerminator)
+            if (isTerminator())
             {
                 Console.WriteLine($"Can't wait to kill Steve!");
             }
@@ -52,6 +52,18 @@ namespace ConcreteAbstractAndInterfaces
             else
             {
                 Console.WriteLine($"\n{Name} is already shutdown!");
+            }
+        }
+
+        public bool isTerminator()
+        {
+            if (amITerminator)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
