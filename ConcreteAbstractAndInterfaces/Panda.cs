@@ -23,7 +23,7 @@ namespace ConcreteAbstractAndInterfaces
             Console.WriteLine($"\n*Noise typical of pandas*");
         }
 
-        public override void Eat(string food)
+        public void Eat(string food)
         {
             Console.WriteLine($"\nYum, {Name} ate a {food}");
         }
