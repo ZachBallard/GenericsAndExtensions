@@ -54,11 +54,5 @@ namespace ConcreteAbstractAndInterfaces
                 Console.WriteLine($"\n{Name} is already shutdown!");
             }
         }
-
-        public override void Eat(string food)
-        {
-            Console.WriteLine($"\nThe {food} are food. Robots do not eat food, stupid.");
-        }
-
     }
 }

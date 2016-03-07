@@ -11,13 +11,13 @@ namespace ConcreteAbstractAndInterfaces
         public string Name { get; set; }
         public bool IsAsleep { get; set; }
 
-        public abstract void Eat(string food);
+
         public abstract void DisplayName();
         public abstract void DisplayGreeting();
     }
 
     interface INotARobot
     {
-        
+        void Eat(string food);
     }
 }

@@ -79,7 +79,7 @@ namespace ConcreteAbstractAndInterfaces
                             robot.StartUp();
                             break;
                         case 5:
-                            robot.Eat(food);
+                            Console.WriteLine($"\nThe {food} are food. Robots do not eat food, stupid."); 
                             break;
                     }
                 }
