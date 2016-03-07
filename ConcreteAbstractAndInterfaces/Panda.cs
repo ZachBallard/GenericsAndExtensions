@@ -46,7 +46,7 @@ namespace ConcreteAbstractAndInterfaces
             if (IsAsleep == true)
             {
                 Console.WriteLine($"\n{Name} has woken up...");
-                IsAsleep = true;
+                IsAsleep = false;
             }
             else
             {
