@@ -11,6 +11,7 @@ namespace ConcreteAbstractAndInterfaces
     {
         static void Main(string[] args)
         {
+            string food = "taco";
             var panda = new Panda();
             var human = new Human();
             var robot = new Robot();
@@ -24,6 +25,69 @@ namespace ConcreteAbstractAndInterfaces
 
             whichAction = WhatAction();
 
+            if (objectSelected == 1)
+            {
+                switch (whichAction)
+                {
+                    case 1:
+                        human.DisplayName();
+                        break;
+                    case 2:
+                        human.DisplayGreeting();
+                        break;
+                    case 3:
+                        human.GoToSleep();
+                        break;
+                    case 4:
+                        human.WakeUp();
+                        break;
+                    case 5:
+                        human.Eat(food);
+                        break;
+                }
+            }
+            else if (objectSelected == 2)
+            {
+                switch (whichAction)
+                {
+                    case 1:
+                        robot.DisplayName();
+                        break;
+                    case 2:
+                        robot.DisplayGreeting();
+                        break;
+                    case 3:
+                        robot.StartUp();
+                        break;
+                    case 4:
+                        robot.ShutDown();
+                        break;
+                    case 5:
+                        robot.Eat(food);
+                        break;
+                }
+            }
+            else
+            {
+                switch (whichAction)
+                {
+                    case 1:
+                        panda.DisplayName();
+                        break;
+                    case 2:
+                        panda.DisplayGreeting();
+                        break;
+                    case 3:
+                        panda.GoToSleep();
+                        break;
+                    case 4:
+                        panda.WakeUp();
+                        break;
+                    case 5:
+                        panda.Eat(food);
+                        break;
+                }
+            }
         }
 
         private static int Select()
@@ -72,6 +136,8 @@ namespace ConcreteAbstractAndInterfaces
                         return 3;
                     case "w":
                         return 4;
+                    case "e":
+                        return 5;
                     default:
                         Console.WriteLine("\nThat isn't a valid selection! Try again.");
                         break;

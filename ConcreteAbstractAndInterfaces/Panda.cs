@@ -29,11 +29,13 @@ namespace ConcreteAbstractAndInterfaces
         public void GoToSleep()
         {
             Console.WriteLine($"{Name} starts to fall asleep...");
+            IsAsleep = true;
         }
 
-        public void WakeUp(string food)
+        public void WakeUp()
         {
             Console.WriteLine($"...{Name} has woken up!");
+            IsAsleep = false;
         }
     }
 }

@@ -36,7 +36,7 @@ namespace ConcreteAbstractAndInterfaces
 
         public void Eat(string food)
         {
-            Console.WriteLine($"Robots do not eat food. Stupid.");
+            Console.WriteLine($"The {food} are food. Robots do not eat food, stupid.");
         }
 
     }
