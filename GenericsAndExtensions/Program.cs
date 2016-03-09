@@ -27,13 +27,13 @@ namespace GenericsAndExtensions
                 switch (selection)
                 {
                     case 1:
-                        serviceVehicle(new Sedan(), shop);
+                        ServiceVehicle(new Sedan(), shop);
                         break;
                     case 2:
-                        serviceVehicle(new Truck(), shop);
+                        ServiceVehicle(new Truck(), shop);
                         break;
                     case 3:
-                        serviceVehicle(new Racecar(), shop);
+                        ServiceVehicle(new Racecar(), shop);
                         break;
                 };
 
@@ -68,7 +68,7 @@ namespace GenericsAndExtensions
             }
         }
 
-        public static void serviceVehicle(Vehicle vehicle, Shop<Vehicle> shop)
+        public static void ServiceVehicle(Vehicle vehicle, Shop<Vehicle> shop)
         {
             //Now I can just change this to add more stuff to what shop can do
             Console.WriteLine($"\nBefore: \nOil Changed = {vehicle.isOilChanged}\nFull Tank = {vehicle.isFilledUp}\nNew Tires = {vehicle.areTiresChanged}");
