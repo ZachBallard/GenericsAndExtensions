@@ -4,16 +4,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ShopExtensions;
 
 namespace GenericsAndExtensions
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            int selection = 0;
-            string secondTime = "";
+            var secondTime = "";
 
             while (true)
             {
@@ -21,27 +19,21 @@ namespace GenericsAndExtensions
                 Console.WriteLine($"\nWelcome {secondTime}to Zach's Garage!");
 
                 var shop = new Shop<Vehicle>();
-                
-                var s = new Sedan();
-                var t = new Truck();
-                var r = new Racecar();
-
 
                 Console.WriteLine("\nWe demonstrate generics and extensions by working on cars.");
-                selection = GetVehicle();
+                var selection = GetVehicle();
 
                 switch (selection)
                 {
                     case 1:
-                        DoThings(s, shop);
+                        DoThings(new Sedan(), shop);
                         break;
                     case 2:
-                        DoThings(t, shop);
+                        DoThings(new Truck(), shop);
                         break;
                     case 3:
-                        DoThings(r, shop);
+                        DoThings(new Racecar(), shop);
                         break;
-                   
                 };
 
                 Console.WriteLine("\nThanks for using Zach's Garage!");
@@ -54,12 +46,10 @@ namespace GenericsAndExtensions
 
         public static int GetVehicle()
         {
-            string userInput = "";
-
             while (true)
             {
                 Console.WriteLine("\nWould you like to send us a (s)edan, (t)ruck, or (r)acecar?");
-                userInput = Console.ReadLine();
+                var userInput = Console.ReadLine();
 
                 switch (userInput)
                 {

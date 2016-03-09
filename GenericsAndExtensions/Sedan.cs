@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericsAndExtensions
 {
-    class Sedan : Vehicle
+    internal class Sedan : Vehicle
     {
         public Sedan()
         {
