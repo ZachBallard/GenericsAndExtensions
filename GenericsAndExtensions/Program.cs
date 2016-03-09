@@ -23,16 +23,17 @@ namespace GenericsAndExtensions
                 Console.WriteLine("\nWe demonstrate generics and extensions by working on cars.");
                 var selection = GetVehicle();
 
+                //sends vehicle to be serviced
                 switch (selection)
                 {
                     case 1:
-                        DoThings(new Sedan(), shop);
+                        serviceVehicle(new Sedan(), shop);
                         break;
                     case 2:
-                        DoThings(new Truck(), shop);
+                        serviceVehicle(new Truck(), shop);
                         break;
                     case 3:
-                        DoThings(new Racecar(), shop);
+                        serviceVehicle(new Racecar(), shop);
                         break;
                 };
 
@@ -46,6 +47,7 @@ namespace GenericsAndExtensions
 
         public static int GetVehicle()
         {
+            //allows user to select a car to send to garage
             while (true)
             {
                 Console.WriteLine("\nWould you like to send us a (s)edan, (t)ruck, or (r)acecar?");
@@ -66,8 +68,9 @@ namespace GenericsAndExtensions
             }
         }
 
-        public static void DoThings(Vehicle vehicle, Shop<Vehicle> shop)
+        public static void serviceVehicle(Vehicle vehicle, Shop<Vehicle> shop)
         {
+            //Now I can just change this to add more stuff to what shop can do
             Console.WriteLine($"\nBefore: \nOil Changed = {vehicle.isOilChanged}\nFull Tank = {vehicle.isFilledUp}\nNew Tires = {vehicle.areTiresChanged}");
             shop.ChangeOil(vehicle);
             shop.FillUp(vehicle);
