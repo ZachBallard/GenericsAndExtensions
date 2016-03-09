@@ -21,10 +21,7 @@ namespace GenericsAndExtensions
                 Console.WriteLine($"\nWelcome {secondTime}to Zach's Garage!");
 
                 var shop = new Shop<Vehicle>();
-                var sedanShop = new Shop<Sedan>();
-                var truckShop = new Shop<Truck>();
-                var racecarShop = new Shop<Racecar>();
-
+                
                 var s = new Sedan();
                 var t = new Truck();
                 var r = new Racecar();
