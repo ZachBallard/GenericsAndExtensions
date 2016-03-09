@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GenericsAndExtensions
 {
-    class Truck : Vehicle
+    public class Truck : Vehicle
     {
         public Truck()
         {

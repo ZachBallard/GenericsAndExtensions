@@ -20,6 +20,7 @@ namespace GenericsAndExtensions
                 Console.Clear();
                 Console.WriteLine($"\nWelcome {secondTime}to Zach's Garage!");
 
+                var shop = new Shop<Vehicle>();
                 var sedanShop = new Shop<Sedan>();
                 var truckShop = new Shop<Truck>();
                 var racecarShop = new Shop<Racecar>();
@@ -30,35 +31,21 @@ namespace GenericsAndExtensions
 
 
                 Console.WriteLine("\nWe demonstrate generics and extensions by working on cars.");
-                selection = getVehicle();
+                selection = GetVehicle();
 
                 switch (selection)
                 {
                     case 1:
-                        Console.WriteLine($"\nBefore: \nOil Changed = {s.isOilChanged}\nFull Tank = {s.isFilledUp}\nNew Tires = {s.areTiresChanged}");
-                        sedanShop.ChangeOil(s);
-                        sedanShop.FillUp(s);
-                        sedanShop.ChangeTires(s);
-                        Console.WriteLine($"\nAfter: \nOil Changed = {s.isOilChanged}\nFull Tank = {s.isFilledUp}\nNew Tires = {s.areTiresChanged}");
+                        DoThings(s, shop);
                         break;
                     case 2:
-                        Console.WriteLine($"\nBefore: \nOil Changed = {t.isOilChanged}\nFull Tank = {t.isFilledUp}\nNew Tires = {t.areTiresChanged}");
-                        truckShop.ChangeOil(t);
-                        truckShop.FillUp(t);
-                        truckShop.ChangeTires(t);
-                        Console.WriteLine($"\nAfter: \nOil Changed = {t.isOilChanged}\nFull Tank = {t.isFilledUp}\nNew Tires = {t.areTiresChanged}");
+                        DoThings(t, shop);
                         break;
                     case 3:
-                        Console.WriteLine($"\nBefore: \nOil Changed = {r.isOilChanged}\nFull Tank = {r.isFilledUp}\nNew Tires = {r.areTiresChanged}");
-                        racecarShop.ChangeOil(r);
-                        racecarShop.FillUp(r);
-                        racecarShop.ChangeTires(r);
-                        Console.WriteLine($"\nAfter: \nOil Changed = {r.isOilChanged}\nFull Tank = {r.isFilledUp}\nNew Tires = {r.areTiresChanged}");
+                        DoThings(r, shop);
                         break;
-                    default:
-                        Console.WriteLine("\nThe vehicle has been serviced!");
-                        break;
-                }
+                   
+                };
 
                 Console.WriteLine("\nThanks for using Zach's Garage!");
                 Console.WriteLine("> hit ENTER to go again <");
@@ -68,10 +55,10 @@ namespace GenericsAndExtensions
             }
         }
 
-        private static int getVehicle()
+        public static int GetVehicle()
         {
             string userInput = "";
-            
+
             while (true)
             {
                 Console.WriteLine("\nWould you like to send us a (s)edan, (t)ruck, or (r)acecar?");
@@ -90,6 +77,17 @@ namespace GenericsAndExtensions
                         break;
                 }
             }
+        }
+
+        public static void DoThings(Vehicle vehicle, Shop<Vehicle> shop)
+        {
+            Console.WriteLine($"\nBefore: \nOil Changed = {vehicle.isOilChanged}\nFull Tank = {vehicle.isFilledUp}\nNew Tires = {vehicle.areTiresChanged}");
+            shop.ChangeOil(vehicle);
+            shop.FillUp(vehicle);
+            shop.ChangeTires(vehicle);
+            Console.WriteLine($"\nAfter: \nOil Changed = {vehicle.isOilChanged}\nFull Tank = {vehicle.isFilledUp}\nNew Tires = {vehicle.areTiresChanged}");
+
+            Console.WriteLine("\nThe vehicle has been serviced!");
         }
     }
 }
