@@ -4,20 +4,10 @@ namespace GenericsAndExtensions
 {
     public static class ShopExtensions
     {
-        public static void ChangeTires<T>(this Shop<T> shop, Vehicle v) where T: Vehicle
+        public static void ChangeTires<T>(this Shop<T> shop, IVehicle v) where T: IVehicle
         {
-            if (v is Racecar)
-            {
-                Console.WriteLine($"\nThe Race Car had its tires changed.");
-            }
-            else if (v is Truck)
-            {
-                Console.WriteLine($"\nThe Truck had its tires changed.");
-            }
-            else
-            {
-                Console.WriteLine($"\nThe Sedan had its tires changed.");
-            }
+            
+                Console.WriteLine($"\n{v} had its tires changed.");
 
             v.areTiresChanged = true;
         }

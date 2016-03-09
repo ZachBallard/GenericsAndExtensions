@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace GenericsAndExtensions
 {
-    public class Truck : Vehicle
+    public class Truck : IVehicle
     {
         public Truck()
         {
             fuelType = "Diesel fuel";
         }
+
+        public override string ToString()
+        {
+            return "Truck";
+        }
+
+        public bool isOilChanged { get; set; }
+        public bool areTiresChanged { get; set; }
+        public bool isFilledUp { get; set; }
+        public string fuelType { get; set; }
     }
 }

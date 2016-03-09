@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GenericsAndExtensions
 {
-    public class Vehicle
+    public interface IVehicle
     {
-        public bool isOilChanged { get; set; } = false;
-        public bool areTiresChanged { get; set; } = false;
-        public bool isFilledUp { get; set; } = false;
-        public string fuelType { get; set; } = "";
+        bool isOilChanged { get; set; }
+        bool areTiresChanged { get; set; }
+        bool isFilledUp { get; set; }
+        string fuelType { get; set; }
     }
 }

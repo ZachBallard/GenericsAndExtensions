@@ -18,7 +18,7 @@ namespace GenericsAndExtensions
                 Console.Clear();
                 Console.WriteLine($"\nWelcome {secondTime}to Zach's Garage!");
 
-                var shop = new Shop<Vehicle>();
+                var shop = new Shop<IVehicle>();
 
                 Console.WriteLine("\nWe demonstrate generics and extensions by working on cars.");
                 var selection = GetVehicle();
@@ -68,7 +68,7 @@ namespace GenericsAndExtensions
             }
         }
 
-        public static void ServiceVehicle(Vehicle vehicle, Shop<Vehicle> shop)
+        public static void ServiceVehicle(IVehicle vehicle, Shop<IVehicle> shop)
         {
             //Now I can just change this to add more stuff to what shop can do
             Console.WriteLine($"\nBefore: \nOil Changed = {vehicle.isOilChanged}\nFull Tank = {vehicle.isFilledUp}\nNew Tires = {vehicle.areTiresChanged}");
