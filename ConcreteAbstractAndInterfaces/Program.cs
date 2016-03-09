@@ -22,7 +22,7 @@ namespace ConcreteAbstractAndInterfaces
 
             bool willKeepOn = true;
             
-            //These lists are purely demonstrative via errors
+            //These lists are purely demonstrative
             List<Human> humanList = new List<Human>();
             humanList.Add(human);
             List<Robot> robotList = new List<Robot>();
